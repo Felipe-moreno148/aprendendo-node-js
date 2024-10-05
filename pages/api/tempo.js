@@ -6,6 +6,8 @@ async function exemplo(request, response) {
     const exemplo1Json = await exemplo1.json();
     const exemplo2 = exemplo1Json.info;
 
+    response.setHeader('cache-control', 's-maxge=10', 'stale-while-revalidate');
+
     response.json({
         date: dynamicDate.toGMTString()
     },
